@@ -1,0 +1,44 @@
+======Google Map======
+{{INLINETOC}}
+=====どんなものを作るのか======
+エクスポートした保存済みリストから、施設の情報を一覧で表示するものを作る
+
+イメージ図
+
+{{:何かを作ろう:pasted:20240122-230957.png}}
+
+=====保存済みリストをエクスポートする方法=====
+参照：https://note.com/key_curiosity/n/naeec8f1bf205
+{{:何かを作ろう:pasted:20240122-225931.png}}
+{{:何かを作ろう:pasted:20240122-230005.png}}
+これ！！！！
+
+45種類のサービスがズラッと並ぶのですが、その下の方をスクロールすると出てくる「Saved - Google 検索やマップの保存したリンク（画像、場所、ウェブページなど）の集合。」を選んでください。選択したら、一番下にある「次のステップ」へ。
+
+{{:何かを作ろう:pasted:20240122-230029.png}}
+
+任意のエクスポート形式を選んで「エクスポート」を作成します。私は、デフォルトの設定でエクスポートします。
+
+{{:何かを作ろう:pasted:20240122-230109.png}}
+
+====ダウンロードしたcsvファイルの中身====
+今回保存したリストではメモとコメントは書いていないので空欄になっている
+
+タイトル,メモ,URL,コメント
+
+バスティーユ広場,,https://www.google.com/maps/place/%E3%83%90%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%A6%E5%BA%83%E5%A0%B4/data=!4m2!3m1!1s0x47e67201aca99229:0x231eb0c967e5eb10,
+
+Hajala Abandoned Railway Tunnel,,https://www.google.com/maps/place/Hajala+Abandoned+Railway+Tunnel/data=!4m2!3m1!1s0x468c41d185835d27:0xb98ff27c67b943c7,
+
+きっさてん,,https://www.google.com/maps/place/%E3%81%8D%E3%81%A3%E3%81%95%E3%81%A6%E3%82%93/data=!4m2!3m1!1s0x487605bc7207c1e3:0xddd3ebd44e93d084,
+
+オルセー美術
+館,,https://www.google.com/maps/place/%E3%82%AA%E3%83%AB%E3%82%BB%E3%83%BC%E7%BE%8E%E8%A1%93%E9%A4%A8/data=!4m2!3m1!1s0x47e66e2bb630941b:0xd071bd8cb14423d8,
+
+=====プログラムの流れ=====
+chatGPT大先生によるとGoogle Places APIを使用して、詳細情報を取得し、それから入場料などを抽出する必要があるらしい
+
+google api key　の確認場所：https://console.cloud.google.com/projectselector2/home/dashboard?hl=ja&_gl=1*1nchzr6*_ga*Mjc3NTEwNzUzNy4xNzAzNzUyMzA1*_ga_NRWSTWS78N*MTcwNTk2OTA2My40LjEuMTcwNTk2OTM1MS4wLjAuMA..
+
+google colabでスクリプトを書いて動かしていくよ
+
