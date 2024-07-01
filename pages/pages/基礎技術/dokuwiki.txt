@@ -1,0 +1,26 @@
+======dokuwiki======
+=====バックアップ=====
+ラズパイにもdokuwikiを入れて、同期するプラグインを利用して、バックアップを取ろうとした。
+
+うまくいかなかったので、\\
+  *rsynsというコマンドを利用して/var/www/html/dokuwiki/data/ の配下の情報を同期する。
+  *githubに/var/www/html/dokuwiki/data/*　を追加して、各端末で編集前にgithubからpullする。
+
+
+同期のためのシェルスクリプトを作ってみよう。
+
+====シェルスクリプトの流れ=====
+dokuwikiデータをgithubに
+  *dokuwiki/data/の配下を/home/nozaki/share/のようなフォルダにコピー
+  *それをgithubに追加
+
+githubから各端末に
+  *各端末の/home/nozaki/share/へgithubからpullする
+  *pullしたものを/var/www/html/dokuwiki/data/にコピーする
+
+<del>管理者権限が必要なディレクトリへのコピーが可能なのか確認する必要がある。</del>　　→sudoの有無は下記画像を参照すること
+{{ dokuwiki:sudo_rsync.jpg }}
+
+=====githubにアップロード=====
+nozaki@raspberrypi の/home/nozaki/share/upload_to_github.shを実行すると、dokuwikiの内容がgithubにアップロードできる。
+{{ dokuiki:commit_script.png }}

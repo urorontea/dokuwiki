@@ -1,0 +1,2 @@
+2024-06-30 08:27:32		Doku_Handler::_addCall() is deprecated. It was called from syntax_plugin_toctweak_metatoc::handle() in /var/www/html/dokuwiki/lib/plugins/toctweak/syntax/metatoc.php:59 addCall should be used instead!
+2024-06-30 08:27:56		Doku_Handler::_addCall() is deprecated. It was called from syntax_plugin_toctweak_metatoc::handle() in /var/www/html/dokuwiki/lib/plugins/toctweak/syntax/metatoc.php:59 addCall should be used instead!

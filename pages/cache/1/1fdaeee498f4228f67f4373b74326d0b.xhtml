@@ -1,0 +1,70 @@
+
+<h1 class="sectionedit1" id="dokuwiki">dokuwiki</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;dokuwiki&quot;,&quot;hid&quot;:&quot;dokuwiki&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-21&quot;} -->
+<h2 class="sectionedit2" id="バックアップ">バックアップ</h2>
+<div class="level2">
+
+<p>
+ラズパイにもdokuwikiを入れて、同期するプラグインを利用して、バックアップを取ろうとした。
+</p>
+
+<p>
+うまくいかなかったので、<br/>
+
+</p>
+<ul>
+<li class="level1"><div class="li">rsynsというコマンドを利用して/var/www/html/dokuwiki/data/ の配下の情報を同期する。</div>
+</li>
+<li class="level1"><div class="li">githubに/var/www/html/dokuwiki/data/*　を追加して、各端末で編集前にgithubからpullする。</div>
+</li>
+</ul>
+
+<p>
+同期のためのシェルスクリプトを作ってみよう。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30d0\u30c3\u30af\u30a2\u30c3\u30d7&quot;,&quot;hid&quot;:&quot;\u30d0\u30c3\u30af\u30a2\u30c3\u30d7&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;22-511&quot;} -->
+<h3 class="sectionedit3" id="シェルスクリプトの流れ">シェルスクリプトの流れ</h3>
+<div class="level3">
+
+<p>
+dokuwikiデータをgithubに
+</p>
+<ul>
+<li class="level1"><div class="li">dokuwiki/data/の配下を/home/nozaki/share/のようなフォルダにコピー</div>
+</li>
+<li class="level1"><div class="li">それをgithubに追加</div>
+</li>
+</ul>
+
+<p>
+githubから各端末に
+</p>
+<ul>
+<li class="level1"><div class="li">各端末の/home/nozaki/share/へgithubからpullする</div>
+</li>
+<li class="level1"><div class="li">pullしたものを/var/www/html/dokuwiki/data/にコピーする</div>
+</li>
+</ul>
+
+<p>
+<del>管理者権限が必要なディレクトリへのコピーが可能なのか確認する必要がある。</del>　　→sudoの有無は下記画像を参照すること
+<a href="/dokuwiki/lib/exe/detail.php?id=%E5%9F%BA%E7%A4%8E%E6%8A%80%E8%A1%93%3Adokuwiki&amp;media=dokuwiki:sudo_rsync.jpg" class="media wikilink2" title="dokuwiki:sudo_rsync.jpg"><img src="/dokuwiki/lib/exe/fetch.php?media=dokuwiki:sudo_rsync.jpg" class="mediacenter" loading="lazy" title="sudo_rsync.jpg" alt="sudo_rsync.jpg" /></a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30b7\u30a7\u30eb\u30b9\u30af\u30ea\u30d7\u30c8\u306e\u6d41\u308c&quot;,&quot;hid&quot;:&quot;\u30b7\u30a7\u30eb\u30b9\u30af\u30ea\u30d7\u30c8\u306e\u6d41\u308c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;512-1062&quot;} -->
+<h2 class="sectionedit4" id="githubにアップロード">githubにアップロード</h2>
+<div class="level2">
+
+<p>
+nozaki@raspberrypi の/home/nozaki/share/upload_to_github.shを実行すると、dokuwikiの内容がgithubにアップロードできる。
+<a href="/dokuwiki/lib/exe/detail.php?id=%E5%9F%BA%E7%A4%8E%E6%8A%80%E8%A1%93%3Adokuwiki&amp;media=dokuiki:commit_script.png" class="media wikilink2" title="dokuiki:commit_script.png"><img src="/dokuwiki/lib/exe/fetch.php?media=dokuiki:commit_script.png" class="mediacenter" loading="lazy" alt="" /></a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;github\u306b\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9&quot;,&quot;hid&quot;:&quot;github\u306b\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1063-&quot;} -->

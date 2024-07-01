@@ -1,0 +1,4 @@
+2024-01-29 12:02:10		IXR_Client::__construct() is deprecated. It was called from admin_plugin_sync::_connect() in /var/www/html/dokuwiki/lib/plugins/sync/admin.php:33 dokuwiki\Remote\IXR\Client should be used instead!
+2024-01-29 12:04:09		IXR_Client::__construct() is deprecated. It was called from admin_plugin_sync::_connect() in /var/www/html/dokuwiki/lib/plugins/sync/admin.php:33 dokuwiki\Remote\IXR\Client should be used instead!
+2024-01-29 12:04:13		IXR_Client::__construct() is deprecated. It was called from admin_plugin_sync::_connect() in /var/www/html/dokuwiki/lib/plugins/sync/admin.php:33 dokuwiki\Remote\IXR\Client should be used instead!
+2024-01-29 12:05:52		IXR_Client::__construct() is deprecated. It was called from admin_plugin_sync::_connect() in /var/www/html/dokuwiki/lib/plugins/sync/admin.php:33 dokuwiki\Remote\IXR\Client should be used instead!

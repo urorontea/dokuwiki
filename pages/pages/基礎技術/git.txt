@@ -1,0 +1,58 @@
+======gitについて======
+=====ssh接続方法=====
+githubではssh接続が推奨（ほぼ強制）されている。
+
+ssh接続をするためには、鍵の登録をしなければならない、
+
+  *端末で鍵の発行
+  *githubに発行した鍵を登録
+
+=====鍵の発行と登録=====
+参考記事：https://qiita.com/shizuma/items/2b2f873a0034839e47ce
+
+====公開鍵・秘密鍵の作成====
+鍵を入れるフォルダに移動
+<code> $cd ~/.ssh </code>
+
+鍵の生成
+<code> $ssh-keygen -t rsa </code>
+
+オプションに関しては省略する。
+
+これを実行すると何か聞かれる。
+<code>
+$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</code>
+
+今回は3回エンターを押すと鍵が生成される。id_rsa（秘密鍵）とid_rsa.pub（公開鍵）が生成される。
+
+パスフレーズを指定しなくても鍵は生成されるが、二回目以降ではパスフレーズを設定する必要がある。
+
+[color=red]2回目以降はパスフレーズを指定しないとid_rsaが上書きされるので注意[/color]
+
+====公開鍵(id_rsa.pub)をGithubにアップする====
+https://github.com/settings/ssh
+で鍵の追加ができる。
+
+====ssh接続の確認====
+<code>$ ssh -T git@github.com </code>
+を実行して\\
+Hi (account名)! You've successfully authenticated, but GitHub does not provide shell access.
+
+が返ってくると接続が成功している。
+
+鍵の生成時に名前を指定すると、うまくいかない場合がある。
+それは、ssh接続の際「~/.ssh/id_rsa」、「~/.ssh/id_dsa」、「~/.ssh/identity」しかデフォルトでは見にいかない。
+それに対応するためには
+
+~/.ssh/configを作成しその中に
+<code>Host github github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_git_rsa #ここに自分の鍵のファイル名
+  User git
+</code>
+を作成する
